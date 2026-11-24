@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlin.math.pow
+import android.util.Log
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,25 +90,24 @@ class MainActivity : AppCompatActivity() {
         }
         // Lance la division quand l'utilisateur appuie sur le bouton
         boutonDivision.setOnClickListener {
-            // Transforme le texte des champs en nombres
             val premier = champPremierNombre.text.toString().toDoubleOrNull()
             val deuxieme = champDeuxiemeNombre.text.toString().toDoubleOrNull()
 
-            // Vérifie que les deux champs contiennent un nombre
             if (premier != null && deuxieme != null) {
+                Log.d("Calculatrice", "Division demandée : $premier / $deuxieme")
+
                 if (deuxieme == 0.0) {
-                    // Empêche la division par zéro
+                    Log.e("Calculatrice", "Dénominateur nul : division refusée")
                     android.widget.Toast.makeText(
                         this,
                         "La division par zéro est impossible.",
                         android.widget.Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    val quotient = premier / deuxieme
+                    val quotient = diviser(premier, deuxieme)
                     zoneResultat.text = "Résultat : $quotient"
                 }
             } else {
-                // Avertit l'utilisateur si un champ est vide
                 android.widget.Toast.makeText(
                     this,
                     "Saisis les deux nombres.",
@@ -145,4 +145,5 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
+
 }
