@@ -5,7 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+import kotlin.math.pow
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
             findViewById<android.widget.Button>(R.id.btnMultiplication)
         val boutonDivision =
             findViewById<android.widget.Button>(R.id.btnDivision)
+        val boutonPuissance =
+            findViewById<android.widget.Button>(R.id.btnPuissance)
 
         // Retrouve la zone qui affichera le résultat
         val zoneResultat = findViewById<android.widget.TextView>(R.id.tvResultat)
@@ -106,6 +108,30 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 // Avertit l'utilisateur si un champ est vide
+                android.widget.Toast.makeText(
+                    this,
+                    "Saisis les deux nombres.",
+                    android.widget.Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+        boutonPuissance.setOnClickListener {
+            val premier = champPremierNombre.text.toString().toDoubleOrNull()
+            val deuxieme = champDeuxiemeNombre.text.toString().toDoubleOrNull()
+
+            if (premier != null && deuxieme != null) {
+                val resultatPuissance = premier.pow(deuxieme)
+
+                if (resultatPuissance.isFinite()) {
+                    zoneResultat.text = "Résultat : $resultatPuissance"
+                } else {
+                    android.widget.Toast.makeText(
+                        this,
+                        "Cette puissance ne donne pas de résultat réel fini.",
+                        android.widget.Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } else {
                 android.widget.Toast.makeText(
                     this,
                     "Saisis les deux nombres.",

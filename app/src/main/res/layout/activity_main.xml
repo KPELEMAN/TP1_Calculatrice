@@ -71,6 +71,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Diviser" />
+    <!-- Bouton pour élever le premier nombre à la puissance du deuxième -->
+    <Button
+        android:id="@+id/btnPuissance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Puissance (a^b)" />
     <!-- Zone où le résultat du calcul sera affiché -->
     <TextView
         android:id="@+id/tvResultat"
