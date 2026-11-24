@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Interface principale de la calculatrice -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F6F8"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <!-- Titre affiché en haut de l'écran -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Ma calculatrice"
+        android:textColor="#17365D"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <!-- Case de saisie du premier nombre -->
+    <EditText
+        android:id="@+id/etPremierNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="12dp"
+        android:hint="Premier nombre"
+        android:inputType="numberDecimal|numberSigned"
+        android:minHeight="56dp"
+        android:padding="12dp" />
+    <!-- Case de saisie du deuxième nombre -->
+    <EditText
+        android:id="@+id/etDeuxiemeNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Deuxième nombre"
+        android:inputType="numberDecimal|numberSigned"
+        android:minHeight="56dp"
+        android:padding="12dp" />
+    <!-- Bouton pour additionner les deux nombres -->
+    <Button
+        android:id="@+id/btnAddition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Additionner" />
+    <!-- Bouton pour soustraire le deuxième nombre du premier -->
+    <Button
+        android:id="@+id/btnSoustraction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Soustraire" />
+    <!-- Bouton pour multiplier les deux nombres -->
+    <Button
+        android:id="@+id/btnMultiplication"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Multiplier" />
+    <!-- Bouton pour diviser le premier nombre par le deuxième -->
+    <Button
+        android:id="@+id/btnDivision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Diviser" />
+    <!-- Zone où le résultat du calcul sera affiché -->
+    <TextView
+        android:id="@+id/tvResultat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:text="Résultat : en attente"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+</LinearLayout>
